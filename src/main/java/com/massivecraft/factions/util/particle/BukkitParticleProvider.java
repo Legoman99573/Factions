@@ -61,6 +61,11 @@ public class BukkitParticleProvider implements ParticleProvider<Particle> {
 
     @Override
     public String effectName(Particle particle) {
-        return particle.name();
+
+        if (particle != null) {
+            return particle.name();
+        } else {
+            return "DUST"; // 1.20.6 breaks stuff. Just fallback on this. Probably a better way to implement this, but I am dum
+        }
     }
 }
